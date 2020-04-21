@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .parent{
+            position: relative;
+            background: rgb(3,3,9);
+            background: linear-gradient(228deg, rgba(3,3,9,0.9724264705882353) 11%, rgba(17,17,20,0.9556197478991597) 18%, rgba(27,27,34,0.4990371148459384) 28%, rgba(15,16,17,0.9472163865546218) 35%, rgba(15,16,17,0.9472163865546218) 39%, rgba(15,15,17,0.7847514005602241) 59%, rgba(15,16,17,0.9472163865546218) 83%, rgba(151,151,156,1) 100%);
+            height: 100vh;
+        }
+        .child{
+            position: absolute;
+            background: rgb(235,82,105);
+            background: linear-gradient(228deg, rgba(235,82,105,0.9472163865546218) 21%, rgba(210,24,44,0.9500175070028011) 52%);
+            box-shadow: 1px 1px 10px black;
+            height: 40vh;
+            width:40vw;
+            margin-left: 30%;
+            margin-top: 10%;
+        }
+        .buttons button{
+            cursor:grabbing;
+            background-color: inherit;
+            border: 1px white solid;
+            margin-left: 70px;
+            position: relative;
+            top: 200px;
+            height: 30px;
+            width: 90px;
+            color: white;
+        }
+    </style>
+    <script>
+        var time;
+        var min=00;
+        var sec=00;
+        var t;
+        var flag_start=true;
+        function start(){
+                if(flag_start)
+                document.getElementById('start').disabled=true;
+                else{
+                document.getElementById('start').disabled=false;
+                }
+                ++sec;
+                if(sec<60)
+                    document.getElementById('time').innerHTML=min+":"+sec;
+                else{
+                    ++min;
+                    sec=00;
+                    document.getElementById('time').innerHTML=min + ":"+sec;
+                }    
+                t=setTimeout(() => {
+                    start()
+                }, 1000);
+        
+        }
+        function stop(){
+            flag_start=true;
+            document.getElementById('start').disabled=false;
+            clearTimeout(t);
+            document.getElementById('time').innerHTML=min+":"+sec;
+        }
+        function reset(){
+            min=00;
+            sec=00;
+            flag_start=true;
+            document.getElementById('start').disabled=false;
+            clearTimeout(t);
+                document.getElementById('time').innerHTML=min +":"+sec;
+        }
+    </script>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;text-transform: uppercase;position: absolute;padding-top: 5px;font-size: 20px;color:white;margin-left: 38%;">stopwatch</span>
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;text-transform: uppercase;position: absolute;padding-top: 60px;font-size: 25px;color:white;word-spacing: 10px;margin-left: 150px;"> javascript stopwatch</span>
+            <span id="time" style="font-size:20px;position: absolute;margin-top: 130px;margin-left: 250px;color:white">00:00</span>
+            <div class="buttons">
+            <button id="start" onclick="start()">Start</button><button onclick="stop()">Stop</button><button onclick="reset()">Reset</button>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

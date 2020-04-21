@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Counter</title>
+        <style>
+            button{
+                height: 50px;
+                width: 100px;
+                padding: 5px;
+                border-style: solid;
+                border-width: 4px;
+                border-color: black;
+                color:white;
+                font-size: 15px;               
+                
+            }
+            input{
+                height: 50px;
+                width: 300px;
+                border-color: black;
+                border-width: 4px;
+                border-style: solid;
+                margin-top: 5px;
+                font-size: 15px;
+            }
+            input::placeholder{
+                font-size: 20px;
+                font-weight: bolder;
+                color: black;
+            }
+        </style>
+        <script>
+            var i=0;
+            function add_item(){
+                ++i;
+                var val=document.getElementById("txt").value;
+                var main=document.getElementById("parent")
+                var inp=document.createElement("input");
+                var but=document.createElement("button");
+                var t=main.appendChild(inp).placeholder=val;
+                t.disabled=true;
+                main.appendChild(but).style.backgroundColor="red";
+                main.appendChild(but).onclick = function(){
+                    main.removeChild(but);
+                    main.removeChild(inp);
+                };
+                var butt=main.appendChild(but).innerHTML="Remove\n";
+            } 
+            function remove(){
+                alert(rohit);
+            }
+        </script>
+    </head>
+<body style="background-color: brown;">
+    <span style="font-size: 90px;font-family: 'Times New Roman', Times, serif"><center>TO DO LIST</center></span>
+    <div id="parent" style="margin-left:500px;margin-top:50px;width:500px;">
+        <input type="text" id="txt"><button style=" background-color: black;" onclick="add_item()">Add Item</button>
+    </div>
+    
+</body>
+</html>

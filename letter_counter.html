@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>
+            Letter Counter
+        </title>
+        <script>
+            var count_words=0;
+            function count(){
+                ++count_words;
+                document.getElementById('words').innerHTML=count_words;     
+                       }
+        </script>
+    </head>
+    <body style="background-color: brown;">
+        <span style="font-size: 90px;font-family: 'Times New Roman', Times, serif"><center>LETTER <br>COUNTER</center></span>
+        <input type="text" id="word" onkeypress="count()">
+        <span>Total Words:</span><span id="words"></span> 
+    </body>
+</html>

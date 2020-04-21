@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>
+            Background Color Changer
+        </title>
+        <style>
+            button{
+                border-radius: 5px;
+                width: 200px;
+                height: 30px;
+                margin-top: 100px;
+                color: black;
+            }
+            button:hover{
+                background-color: black;
+                color: white;
+                border-color: black;
+                box-shadow: 1px 1px 10px black;
+            }
+        </style>
+        <script>
+            var arr=["pink","green","blue","cyan"];
+
+            function changecolor(){
+                var rand=Math.floor(Math.random(0,arr.length)*arr.length);
+                document.body.style.background=arr[rand];
+            }
+        </script>
+    </head>
+
+    <body style="background-color: brown;">
+        <span style="font-size: 90px;font-family: 'Times New Roman', Times, serif"><center>BACKGROUND <br>COLOR<br> CHANGER</center></span>
+        <center><button onclick="changecolor()">Change Background Color</button></center>
+    </body>
+</html>
